@@ -5,9 +5,12 @@ function App() {
     'ReactJS',
     'React Native'
   ]);
+  const [newTech, setNewTech] = useState('');
   function handleAdd() {
-    setTech([...tech, 'Node.js']);
+    setTech([...tech, newTech]);
+    setNewTech('');
   }
+
   return (
     <>
       <ul>
@@ -15,6 +18,7 @@ function App() {
           <li key={t}>{t}</li>
         )}
       </ul>
+      <input value={newTech} onChange={e => setNewTech(e.target.value)}></input>
       <button type="button" onClick={handleAdd}>Adicionar</button>
     </>
   );
