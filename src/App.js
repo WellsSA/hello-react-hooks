@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [tech, setTech] = useState([
@@ -10,6 +10,25 @@ function App() {
     setTech([...tech, newTech]);
     setNewTech('');
   }
+
+  // componentWillMount
+  useEffect(() => {
+    const storageTech = localStorage.getItem('tech');
+
+    if (storageTech) {
+      setTech(JSON.parse(storageTech));
+    }
+    
+    // componentWillUnmount
+    return () => {
+      // document.removeEventListener();
+    }
+  }, []);
+
+  // componentWillUpdate
+  useEffect(() => {
+    localStorage.setItem('tech', JSON.stringify(tech))
+  }, [tech]);
 
   return (
     <>
