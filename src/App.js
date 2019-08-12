@@ -21,7 +21,7 @@ function App() {
     
     // componentWillUnmount
     return () => {
-      // document.removeEventListener();
+      // document.remove EventListener();
     }
   }, []);
 
@@ -30,6 +30,7 @@ function App() {
     localStorage.setItem('tech', JSON.stringify(tech))
   }, [tech]);
 
+   
   return (
     <>
       <ul>
